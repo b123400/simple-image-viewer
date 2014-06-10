@@ -6,7 +6,14 @@ block content
   if error
     p #{error}
   else
+    h1 Folders
     each folder in folders
       - var folderComponents = folder.split('/')
       a(href='/?dir=#{folder}')= folderComponents[folderComponents.length-1]
+      br
+
+    h2 Files
+    each file in files
+      - var fileComponents = file.split('/')
+      a(href='/view?path=#{file}')= fileComponents[fileComponents.length-1]
       br

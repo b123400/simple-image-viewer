@@ -13,10 +13,8 @@ exports.list = (baseDir)->
 
       folders = []
       files = []
-      items.forEach (i)->
-        return if i.charAt(0) is "."
-        if path.extname directory+'/'+i
-          files.push i
-        else
-          folders.push directory+'/'+i
+      items.forEach (item)->
+        return if item.charAt(0) is "."
+        collection = if path.extname item then files else folders
+        collection.push directory+'/'+item
       res.render 'index', {folders, files}
