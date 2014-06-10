@@ -15,6 +15,9 @@ exports.list = (baseDir)->
       files = []
       items.forEach (item)->
         return if item.charAt(0) is "."
-        collection = if path.extname item then files else folders
-        collection.push directory+'/'+item
+        ext = path.extname item
+        if not ext
+          folders.push directory+'/'+item
+        else if ext in ['.jpg', '.jpeg', '.png', '.gif']
+          files.push directory+'/'+item
       res.render 'index', {folders, files}
