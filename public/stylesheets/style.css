@@ -6,3 +6,11 @@ body {
 a {
   color: #00B7FF;
 }
+
+div.list-thumb{
+  float: left;
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+  background-position: center;
+}

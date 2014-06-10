@@ -6,4 +6,4 @@ block content
   if error
     p #{error}
   else
-    img(src='/image?path=#{path}')
+    img(src='/image?path=#{encodeURIComponent(path)}')

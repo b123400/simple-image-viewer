@@ -15,5 +15,5 @@ block content
     h2 Files
     each file in files
       - var fileComponents = file.split('/')
-      a(href='/view?path=#{file}')= fileComponents[fileComponents.length-1]
-      br
+      a(href='/view?path=#{file}')
+        div.list-thumb(style='background-image:url("/image?path=#{encodeURIComponent(file)}")')

@@ -8,7 +8,9 @@ exports.viewer = (req, res)->
 exports.image = (baseDir)->
   (req, res)->
     path = req.query.path
-    console.log path, baseDir
     if path.indexOf(baseDir) isnt 0
       return res.end()
-    fs.createReadStream(path).pipe res
+    try
+      fs.createReadStream(path).pipe res
+    catch
+      res.end()
