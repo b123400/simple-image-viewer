@@ -7,4 +7,6 @@ block content
     p #{error}
   else
     each folder in folders
-      p= folder
+      - var folderComponents = folder.split('/')
+      a(href='/?dir=#{folder}')= folderComponents[folderComponents.length-1]
+      br
