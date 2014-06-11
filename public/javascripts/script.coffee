@@ -19,7 +19,8 @@ do ->
   else
     style.appendChild(document.createTextNode(css))
 
-  head.appendChild(style);
+  head.appendChild(style)
+
 window.addEventListener 'load', ->
   buttons = document.querySelectorAll('.size-control button')
   buttons = [].slice.apply buttons
@@ -29,3 +30,6 @@ window.addEventListener 'load', ->
       [].slice.apply(document.querySelectorAll('.list-thumb')).forEach (e)->
         e.style.width = localStorage['thumb-size']+'px'
         e.style.height = localStorage['thumb-size']+'px'
+
+  prevButton = document.getElementById 'prev'
+  nextButton = document.getElementById 'next'

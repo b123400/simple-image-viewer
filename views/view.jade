@@ -5,3 +5,7 @@ block content
     p #{error}
   else
     img(src='/image?path=#{encodeURIComponent(path)}')
+
+  div.view-nav
+    button#prev prev
+    button#next next
