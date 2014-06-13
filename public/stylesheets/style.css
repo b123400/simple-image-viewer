@@ -24,6 +24,21 @@ div.size-control{
 
 div.view-nav{
 	position: fixed;
+  height: 100%;
+  width: 7%;
 	right: 0;
-	bottom: 0;
+	top: 0;
+}
+
+div.view-nav #prev{
+  /*position: absolute;*/
+  top: 50%;
+  height: 50%;
+  background: rgba(0,0,0,0.3);
+}
+
+div.view-nav #next{
+  top: 0;
+  height: 50%;
+  background: rgba(0,0,0,0.3);
 }
