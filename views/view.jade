@@ -7,5 +7,9 @@ block content
     img(src='/image?path=#{encodeURIComponent(path)}')
 
   div.view-nav
-    button#prev prev
-    button#next next
+    if prev
+      a(href='/view?path=#{prev}')
+        div#prev prev
+    if next
+      a(href='/view?path=#{next}')
+        div#next next

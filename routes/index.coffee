@@ -4,6 +4,7 @@
 ###
 fs = require 'fs'
 path = require 'path'
+async = require 'async'
 
 exports.list = (baseDir)->
   (req, res)->
@@ -13,11 +14,19 @@ exports.list = (baseDir)->
 
       folders = []
       files = []
-      items.forEach (item)->
-        return if item.charAt(0) is "."
-        ext = path.extname item
-        if not ext
-          folders.push directory+'/'+item
-        else if ext in ['.jpg', '.jpeg', '.png', '.gif']
-          files.push directory+'/'+item
-      res.render 'index', {folders, files}
+
+      async.parallel items.map((item)->
+        (callback)->
+          return callback() if item.charAt(0) is "."
+          fullPath = path.join directory, item
+          fs.lstat fullPath, (err, stat)->
+            return callback err if err
+            if stat.isDirectory()
+              folders.push fullPath
+            else if stat.isFile() and path.extname(item) in ['.jpg', '.jpeg', '.png', '.gif']
+              files.push fullPath
+
+            callback()
+        )
+      , (err)->
+        res.render 'index', {folders, files}

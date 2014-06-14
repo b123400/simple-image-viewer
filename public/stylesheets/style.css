@@ -35,10 +35,14 @@ div.view-nav #prev{
   top: 50%;
   height: 50%;
   background: rgba(0,0,0,0.3);
+  color: white;
+  text-decoration: none;
 }
 
 div.view-nav #next{
   top: 0;
   height: 50%;
   background: rgba(0,0,0,0.3);
+  color: white;
+  text-decoration: none;
 }

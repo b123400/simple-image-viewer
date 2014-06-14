@@ -11,7 +11,7 @@ block content
       a(href='/?dir=#{folder}')= folderComponents[folderComponents.length-1]
       br
 
-    h1 Files
+    h1 Images
     each file in files
       - var fileComponents = file.split('/')
       a(href='/view?path=#{file}')
