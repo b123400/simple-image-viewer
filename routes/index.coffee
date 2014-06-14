@@ -9,6 +9,9 @@ async = require 'async'
 exports.list = (baseDir)->
   (req, res)->
     directory = req.query.dir || baseDir;
+    directory = path.normalize directory
+    return res.send 403 if directory.indexOf(baseDir) isnt 0
+
     files = fs.readdir directory, (error, items)->
       return res.render 'index', {error} if error
 
@@ -29,4 +32,5 @@ exports.list = (baseDir)->
             callback()
         )
       , (err)->
+        folders.unshift path.join directory, '..'
         res.render 'index', {folders, files}

@@ -37,7 +37,7 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.list(app.get('image-dir')));
-app.get('/view', viewer.viewer);
+app.get('/view', viewer.viewer(app.get('image-dir')));
 app.get('/image', viewer.image(app.get('image-dir')));
 
 http.createServer(app).listen(app.get('port'), function(){
