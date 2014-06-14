@@ -7,6 +7,10 @@ a {
   color: #00B7FF;
 }
 
+a.folder:first-child{
+  color: #666;
+}
+
 div.list-thumb{
   float: left;
   width: 100px;

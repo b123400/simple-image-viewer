@@ -6,10 +6,11 @@ block content
     p #{error}
   else
     h1 Folders
-    each folder in folders
-      - var folderComponents = folder.split('/')
-      a(href='/?dir=#{folder}')= folderComponents[folderComponents.length-1]
-      br
+    div.folders
+      each folder in folders
+        - var folderComponents = folder.split('/')
+        a.folder(href='/?dir=#{folder}')= folderComponents[folderComponents.length-1]
+        br
 
     h1 Images
     each file in files
