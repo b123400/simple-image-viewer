@@ -1,6 +1,7 @@
 body {
   /*padding: 50px;*/
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  text-align: right;
 }
 
 a {
@@ -35,18 +36,31 @@ div.view-nav{
 }
 
 div.view-nav #prev{
-  /*position: absolute;*/
-  top: 50%;
-  height: 50%;
+  position: absolute;
+  top: 60%;
+  height: 40%;
   background: rgba(0,0,0,0.3);
   color: white;
   text-decoration: none;
+  width: 100%;
 }
 
 div.view-nav #next{
+  position: absolute;
   top: 0;
-  height: 50%;
+  height: 40%;
   background: rgba(0,0,0,0.3);
   color: white;
   text-decoration: none;
+  width: 100%;
+}
+
+div.view-nav #back{
+  position: absolute;
+  top: 40%;
+  height: 20%;
+  background: rgba(0,0,0,0.2);
+  color: white;
+  text-decoration: none;
+  width: 100%;
 }

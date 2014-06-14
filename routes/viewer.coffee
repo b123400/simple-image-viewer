@@ -30,6 +30,7 @@ exports.viewer = (baseDir)->
             path : req.query.path
             prev : files[ index-1 ]
             next : files[ index+1 ]
+            parentDir: dir
 
 exports.image = (baseDir)->
   (req, res)->
