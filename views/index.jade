@@ -23,3 +23,8 @@ block content
       button 200
       button 400
       button 600
+
+    div.page-control
+      span Paging:
+      a#next(href='/?dir=#{currentDirectory}&page=#{page+1}') next
+      a#prev(href='/?dir=#{currentDirectory}&page=#{page-1}') prev

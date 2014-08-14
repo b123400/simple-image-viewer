@@ -30,6 +30,3 @@ window.addEventListener 'load', ->
       [].slice.apply(document.querySelectorAll('.list-thumb')).forEach (e)->
         e.style.width = localStorage['thumb-size']+'px'
         e.style.height = localStorage['thumb-size']+'px'
-
-  prevButton = document.getElementById 'prev'
-  nextButton = document.getElementById 'next'

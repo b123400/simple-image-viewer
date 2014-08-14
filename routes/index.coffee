@@ -12,11 +12,16 @@ exports.list = (baseDir)->
     directory = path.normalize directory
     return res.send 403 if directory.indexOf(baseDir) isnt 0
 
+    page = req.query.page || 0
+    page = Number page
+    count = 20
+
     files = fs.readdir directory, (error, items)->
       return res.render 'index', {error} if error
 
       folders = []
       files = []
+      items = items.slice page*count, (page+1)*count
 
       async.parallel items.map((item)->
         (callback)->
@@ -33,4 +38,5 @@ exports.list = (baseDir)->
         )
       , (err)->
         folders.unshift path.join directory, '..'
-        res.render 'index', {folders, files}
+        console.log directory
+        res.render 'index', {folders, files, currentDirectory: directory, page}
